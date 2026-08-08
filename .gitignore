@@ -1,0 +1,20 @@
+# Local tooling / internal files
+.freebuff/
+
+# Assessment handout (not part of the submission content)
+Debe_Learning_Tech_Intern_Assessment.pdf
+
+# Node
+node_modules/
+
+# Next.js
+.next/
+out/
+build/
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+.env*
+!.env.example
