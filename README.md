@@ -34,6 +34,18 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
+### Verify it
+
+The widget ships with a Playwright smoke test that exercises the full flow — cards
+render, the modal opens, the 2-hour lockout disables slots, local display + UTC
+storage are visible, the happy path succeeds, and a server-side rejection surfaces
+as a typed error:
+
+```bash
+python -m pip install playwright && python -m playwright install chromium
+python scripts/smoke_test.py --base-url http://localhost:3000
+```
+
 ### Key design decisions (see code comments for the full reasoning)
 
 - **UTC storage, local display** — session datetimes are stored as UTC ISO-8601 strings.
