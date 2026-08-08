@@ -8,14 +8,14 @@ Role: **Tech Intern (Web/Portal Engineering)**
 
 ### 1. GitHub profile
 
-- **Profile:** https://github.com/deepak9813
+- **Profile:** https://github.com/deepakrai9813
 
 ### 2. Repositories
 
 > ⚠️ These answers are drafted from the repo structure and should be re-worded in your own
 > voice and verified against your actual work before submitting — especially "what I built".
 
-#### Repo A: [SajhaEduCore](https://github.com/deepak9813/SajhaEduCore)
+#### Repo A: [SajhaEduCore](https://github.com/deepakrai9813/SajhaEduCore)
 
 - **Problem it solves:** An ed-tech platform backend ("Sajha Edu" — shared education) that
   keeps the domain — courses, batches, branches and their relationships — organized as
@@ -31,7 +31,7 @@ Role: **Tech Intern (Web/Portal Engineering)**
   day one (and maybe a service/repository layer to keep views thin), so the modularity
   doesn't outrun the test coverage that protects it.
 
-#### Repo B: [Portfolio](https://github.com/deepak9813/Portfolio)
+#### Repo B: [Portfolio](https://github.com/deepakrai9813/Portfolio)
 
 - **Problem it solves:** A personal portfolio site — a single landing experience that
   presents who I am and what I build, with SEO basics (sitemap, robots.txt, Google site
