@@ -88,15 +88,13 @@ export function isWithinLeadTime(utcIso: string): boolean {
  */
 export function localDateAndHourToUtc(dateStr: string, hour: number, minute = 0): string {
   const [y, m, d] = dateStr.split("-").map(Number);
+  // Defensive: a cleared/partial date input ("") must never become a bookable
+  // slot — an invalid Date would make `.toISOString()` THROW a RangeError and
+  // crash the picker. Callers treat the "" sentinel as "not a real slot".
+  if (!Number.isFinite(y) || !Number.isFinite(m) || !Number.isFinite(d)) {
+    return "";
+  }
   return new Date(y, m - 1, d, hour, minute, 0, 0).toISOString();
-}
-
-/** Format a UTC instant as "HH:MM" in the parent's local timezone. */
-export function formatLocalTime(utcIso: string): string {
-  return new Intl.DateTimeFormat(undefined, {
-    hour: "numeric",
-    minute: "2-digit",
-  }).format(new Date(utcIso));
 }
 
 /**

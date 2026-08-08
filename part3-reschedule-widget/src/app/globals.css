@@ -456,6 +456,17 @@ input[type="date"]:focus {
   margin-top: 14px;
 }
 
+.slot-picker__empty {
+  margin: 14px 0 0;
+  padding: 14px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 13.5px;
+  text-align: center;
+}
+
 .slot {
   font-family: inherit;
   font-size: 13.5px;

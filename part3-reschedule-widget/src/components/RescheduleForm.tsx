@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { requestReschedule } from "@/lib/requestReschedule";
 import {
   formatLocalDateTime,
@@ -39,9 +39,22 @@ export function RescheduleForm({ session, onClose, onSuccess }: RescheduleFormPr
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // The instant the parent has picked so far, in LOCAL display + UTC storage
-  // terms. Demonstrates the local/UTC split the assessment asks about.
-  const previewUtc = selectedHour !== null ? localDateAndHourToUtc(date, selectedHour) : null;
+  // terms. Demonstrates the local/UTC split the assessment asks about. The
+  // `date !== ""` guard mirrors the picker: a cleared date has no slot.
+  const previewUtc =
+    selectedHour !== null && date !== "" ? localDateAndHourToUtc(date, selectedHour) : null;
   const canSubmit = date !== "" && selectedHour !== null && reason !== "" && submitState !== "submitting";
+
+  // Move keyboard focus into the modal on open and restore it when it closes
+  // (basic focus management — Escape and backdrop clicks also close it).
+  const modalRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const previouslyFocused = document.activeElement;
+    modalRef.current?.focus();
+    return () => {
+      if (previouslyFocused instanceof HTMLElement) previouslyFocused.focus();
+    };
+  }, []);
 
   // Close on Escape (unless a request is in flight).
   useEffect(() => {
@@ -87,7 +100,14 @@ export function RescheduleForm({ session, onClose, onSuccess }: RescheduleFormPr
         if (e.target === e.currentTarget && submitState !== "submitting") onClose();
       }}
     >
-      <div className="modal" role="dialog" aria-modal="true" aria-labelledby="reschedule-title">
+      <div
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="reschedule-title"
+        tabIndex={-1}
+        ref={modalRef}
+      >
         <header className="modal__header">
           <div>
             <h2 id="reschedule-title">Request a reschedule</h2>

@@ -54,6 +54,11 @@ export function TimeSlotPicker({
         </p>
       </div>
 
+      {date === "" ? (
+        // The parent cleared the date field — a cleared input must never render
+        // "bookable" slots or crash (see the guard in localDateAndHourToUtc).
+        <p className="slot-picker__empty">Pick a date to see available times.</p>
+      ) : (
       <div className="slot-picker__grid" role="group" aria-label="Available times">
         {SLOT_HOURS.map((hour) => {
           // Build the UTC instant this LOCAL wall-clock slot would become.
@@ -93,6 +98,7 @@ export function TimeSlotPicker({
           );
         })}
       </div>
+      )}
     </div>
   );
 }

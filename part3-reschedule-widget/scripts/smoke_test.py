@@ -70,6 +70,12 @@ def main() -> int:
         expect(modal.locator(".slot--disabled").first).to_be_visible()
         print("PASS: 12 time slots render; today shows disabled slots (2h lockout/past)")
 
+        # ── 3b. Regression: clearing the date input must not crash the picker ──
+        modal.locator('input[type="date"]').fill("")
+        expect(modal.locator(".slot-picker__empty")).to_be_visible()
+        expect(page.locator(".modal")).to_be_visible()  # still alive, no crash
+        print("PASS: clearing the date field shows a hint instead of crashing")
+
         # ── 4. Reason dropdown offers the four required options ──────────────
         options = modal.locator("select option").all_inner_texts()
         for expected in ["Conflict", "Illness", "Time zone", "Other"]:
