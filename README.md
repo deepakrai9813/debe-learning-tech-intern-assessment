@@ -34,6 +34,10 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
+### Live demo
+
+Deployed on Vercel: https://debe-learning-tech-intern-assessment-drai9813-3092s-projects.vercel.app
+
 ### Verify it
 
 The widget ships with a Playwright smoke test that exercises the full flow — cards

@@ -75,6 +75,8 @@ Built in `part3-reschedule-widget/` — Next.js (App Router) + TypeScript, no `a
 
 **Run it:** `cd part3-reschedule-widget && npm install && npm run dev` → http://localhost:3000
 
+**Live demo:** https://debe-learning-tech-intern-assessment-drai9813-3092s-projects.vercel.app (deployed on Vercel)
+
 ### What was built
 
 - **Parent-facing widget** listing the student's next 3 upcoming sessions (mocked static data)
