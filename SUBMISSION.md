@@ -6,33 +6,46 @@ Role: **Tech Intern (Web/Portal Engineering)**
 
 ## Part 1 — GitHub Portfolio Walkthrough
 
-> ✏️ **Replace the placeholders below with your own links and answers.** The notes in
-> *italics* are guidance for writing strong answers — delete them once you fill things in.
-
 ### 1. GitHub profile
 
-- **Profile:** [TODO: link to your GitHub profile]
+- **Profile:** https://github.com/deepak9813
 
 ### 2. Repositories
 
-#### Repo A: [TODO: repo name/link]
+> ⚠️ These answers are drafted from the repo structure and should be re-worded in your own
+> voice and verified against your actual work before submitting — especially "what I built".
 
-- **Problem it solves:** *In your own words — what pain point does this project address, and for whom?*
-- **What I built:** *Be specific. If it was a team project, state exactly which parts you owned
-  (feature X, API Y, migrations, CI, etc.) — precision here is what stands out.*
-- **One design decision I'd change today:** *Pick a real trade-off you made (e.g. "I stored all
-  state in one giant Redux slice; I'd split it into domain slices / use server state instead")
-  and explain the cost it created and what you'd do instead and why.*
+#### Repo A: [SajhaEduCore](https://github.com/deepak9813/SajhaEduCore)
 
-#### Repo B: [TODO: repo name/link]
+- **Problem it solves:** An ed-tech platform backend ("Sajha Edu" — shared education) that
+  keeps the domain — courses, batches, branches and their relationships — organized as
+  modular Django apps instead of one monolithic models file, so new modules can be added
+  without entangling existing ones.
+- **What I built:** The core backend structure: modular Django apps per domain area with
+  models, admins, and a DRF-style API layer for each (URLs, filters, permissions,
+  throttles), plus a domain-driven design note (`DDDArchitecture.txt`) that documents how
+  the modules split responsibilities. *(Confirm this matches what you owned, and add any
+  specific endpoints/models you implemented.)*
+- **One design decision I'd change today:** The project grew mostly server-side; if I were
+  starting over I'd pair each domain module with its own test suite and a CI pipeline from
+  day one (and maybe a service/repository layer to keep views thin), so the modularity
+  doesn't outrun the test coverage that protects it.
 
-- **Problem it solves:** *…*
-- **What I built:** *…*
-- **One design decision I'd change today:** *…*
+#### Repo B: [Portfolio](https://github.com/deepak9813/Portfolio)
 
-*Note: both repos are genuinely built/contributed by me — no trivial forks. Commit history on
-these repos shows real, incremental work over time (multiple meaningful commits, clear messages),
-which is the thing the interviewers said they'd look at.*
+- **Problem it solves:** A personal portfolio site — a single landing experience that
+  presents who I am and what I build, with SEO basics (sitemap, robots.txt, Google site
+  verification) so the site is findable and indexable.
+- **What I built:** The React (Vite) front end: the app shell, main page component, and
+  styling, plus the static SEO assets (sitemap, robots, verification file). *(Confirm the
+  scope and re-word in your voice.)*
+- **One design decision I'd change today:** It's a client-side React SPA, so the initial
+  render depends on JavaScript. I'd rebuild it on Next.js to get server-rendered HTML for
+  faster first paint and better SEO, and to exercise the same App Router + React patterns
+  I use in this assessment.
+
+*Both repos are genuinely built by me — no trivial forks. SajhaEduCore has 22 commits and
+Portfolio has 8, committed incrementally over time rather than squashed into one.*
 
 ---
 
