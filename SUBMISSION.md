@@ -119,9 +119,12 @@ server-side, because a client-side-only rule can be bypassed with a direct call.
 
 ---
 
-## Part 4 — Explain-It-Yourself Video (script outline)
+## Part 4 — Explain-It-Yourself Video
 
-*Recorded as a 4–7 min unedited screen recording. Outline of what I walk through, live:*
+**Video: [`PART4_VIDEO.mp4`](PART4_VIDEO.mp4)** — 6 min 48 s unedited screen recording
+(playable inline in GitHub; original recording compressed from 201.8 MB to 70 MB).
+
+*Outline of what I walk through, live:*
 
 1. **Walk through the Part 3 code** (no notes): start at `src/shared/types.ts` → the mock data →
    the widget component → the reschedule form → `src/lib/requestReschedule.ts` → the time utils.
